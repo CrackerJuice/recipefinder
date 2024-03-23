@@ -1,0 +1,17 @@
+<script>
+function getsource(id){
+$.ajax({
+url:"https://api.spoonacular.com/recipies/"+id+"/information?apiKey=91ca1bbf73cc47f8bb9b7df0e16f5855",
+success:function(res){
+    document.getElementById("sourceLink")InnerHTML=res.sourceUrl
+    document.getElementById("sourceLink").href=res.sourceUrl
+}
+});
+}
+function getrecipe(q){
+    $.ajax({
+        url:"https://api.spoonacular.com/recipies/search?apiKey=91ca1bbf73cc47f8bb9b7df0e16f5855&number=3&query="+q,
+    success: function(res){
+        document.getElementById("output").innerHTML="<h1>"+res.results[0].title+</h1><br><img src='""+res.baseUri+res.results[0].image"'+width='400'
+    }})
+}
